@@ -59,7 +59,6 @@ p {
 
 .products_list{
     display: flex;
-    
 }
 
 .categories{
@@ -67,6 +66,13 @@ p {
     margin-left: 30px;
     flex-wrap: wrap;
     width:300px;
+}
+
+.welcome{
+    font-size: larger;
+    margin-bottom: -30px;
+    font-style: italic;
+    color:black;
 }
 
 .product_galary{

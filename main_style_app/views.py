@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import ShirtHome
+from .models import ShirtHome, OxfordShirt
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Auth
@@ -43,6 +43,18 @@ class ProductList(TemplateView):
             context["shirts"] = ShirtHome.objects.all()
         return context
 
+class OxfordList(TemplateView):
+    template_name = "oxford_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        if name != None:
+            context["shirts"] = OxfordShirt.objects.filter(
+                name__icontains=name, user=self.request.user)
+        else:
+            context["shirts"] = OxfordShirt.objects.all()
+        return context
 
 class Signup(View):
     def get(self, request):

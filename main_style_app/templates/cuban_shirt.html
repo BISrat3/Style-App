@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% comment %} for head title tags and helping us with SEO {% endcomment %}
+{% block title %}Shirts{% endblock  %}
+
+{% block content %}
+
+<h1 class="header pt-5">Cuban Styles </h1>
+<div class="gallery">
+    {% for shirt in shirts %}
+    <a href="{% url 'login' %}">
+    <div class="card">
+        <div class="card-image">
+        <figure class="image is-square">
+            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
+        </figure>
+        </div>
+        <div class="card-header">
+        <p class="card-header-title">{{shirt.name}}</p>
+        <div class="card-header-price">
+            <p >${{shirt.price}}</p>
+          </div>
+        </div>
+    </div>
+    </a>
+    {% empty %}
+    <article class="message">
+    <div class="message-header">
+        <p>No Shirts Available</p>
+    </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
