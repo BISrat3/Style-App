@@ -21,6 +21,13 @@ h3 {
     color: #ffffff;
 }
 
+.header{
+    color:black;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

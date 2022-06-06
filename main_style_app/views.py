@@ -24,3 +24,11 @@ class Shirt(TemplateView):
         context = super().get_context_data(**kwargs)
         context["shirts"] = ShirtHome.objects.all()
         return context
+
+class ProductList(TemplateView):
+    template_name = "product_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["shirts"] = ShirtHome.objects.all()
+        return context
