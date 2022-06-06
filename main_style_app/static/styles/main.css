@@ -2,6 +2,7 @@ body{
     background-color: whitesmoke;
     color:black;
     min-height: 100vh;
+    margin: auto;
 }
 
 .h1_header{
@@ -48,6 +49,19 @@ p {
     font-size: 12px;
 }
 
+.mb-5{
+    text-align: center;
+
+}
+
+.field.has-addons.align{
+   display: flex;
+   justify-content: center;
+}
+
+/* .searchInput{
+    width:250px;
+} */
 .footer{
     position: bottom;
 }
