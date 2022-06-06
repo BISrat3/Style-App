@@ -12,9 +12,20 @@
     <title>Fashion - {% block title %} {% endblock %}</title>
 </head>
 <body>
+  {% if user.is_authenticated %}
+  <div class="navbar-menu navbar-end">
+      <span class="navbar-item">Welcome: {{user.username}}</span>
+      <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+  </div>
+{% else %}
+  <div class="navbar-menu navbar-end">
+      <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+      <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
+  </div>
+{% endif %}
     <nav class="navbar is-success" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">Men</a>
+            <a class="navbar-item" href="/">Home</a>
             <a role="button" class="navbar-burger is-left" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -25,7 +36,7 @@
             <a class="navbar-item" href="/about">About</a>
         </div>
         <div class="navbar-menu navbar-end">
-            <a class="navbar-item" href="/artists">Shop</a>
+            <a class="navbar-item" href="{% url 'login' %}">Shirts</a>
         </div>
     </nav>
     <div class="container">
