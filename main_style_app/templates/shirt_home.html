@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% comment %} for head title tags and helping us with SEO {% endcomment %}
 {% block title %}Shirts{% endblock  %}
 
@@ -8,11 +7,11 @@
 <h1 class="title pt-5">Shirts</h1>
 <div class="gallery">
     {% for shirt in shirts %}
-    <a href="">
+    <a href="#">
     <div class="card">
         <div class="card-image">
         <figure class="image is-square">
-            <img src="{{shirt.image}}" alt="{{shirt.name}}" />
+            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
         </figure>
         </div>
         <div class="card-header">
