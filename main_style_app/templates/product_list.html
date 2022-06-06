@@ -15,21 +15,80 @@
   <!--  This anchor tag will redirect back to artist list without a query param -->
   <a class="button is-dark" href="{% url 'product_list' %}">Clear Search</a>
 </form>
-<div class="gallery">
-    {% for shirt in shirts %}
-  <a href="">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-square">
-          <img src="{{shirt.img}}" alt="{{shirt.name}}" />
-        </figure>
+<div class="products_list">
+  <div class="categories">
+    <div class="categories_list">
+        <h3 class="h3_categories"><strong>Categories</strong></h3>
+        <hr />
+      <ul>
+        <li>
+          <a herf="#">
+            Oxford Button-Down Shirt
+          </a>
+        </li>
+        <li>
+          <a herf="#">
+            Dress Shirt
+          </a>
+        </li>
+        <li>
+          <a herf="#">
+            Cuban collar Shirt
+          </a>
+        </li>
+        <li>
+          <a herf="#">
+            Overshirt
+          </a>
+        </li>
+        <li>
+          <a herf="#">
+            Flannel Shirt
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="filter_list flex-sb-m flex-w p-t-16">
+      <div class="w-size11">
+        <h3 class="h3_categories"><strong>Filters</strong></h3>
+        <hr />
       </div>
-      <div class="card-header">
-        <p class="card-header-title">{{shirt.name}}</p>
+      <button class=""flex-c-m >
+        <h3 class="h3_categories"><strong>Filters</strong></h3>
+      </button>
+      <div>
+        Price: $ <span class="price_range">10</span>
+        - $ <span class="upto_range">600</span>
       </div>
     </div>
+  </div>
+  <div class="product_galary">
+    {% for shirt in shirts %}
+    <a href="">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-square">
+            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
+          </figure>
+        </div>
+        <div class="card-header">
+          <div class="card-header-title">
+            <p >{{shirt.name}}</p> 
+          </div>
+          <div class="card-header-price">
+            <p >${{shirt.price}}</p>
+          </div>
+          
+        </div>
+  <!-- <div class="card-header">
+  </div> -->
+  <!-- <div>
+    <p class="card-product-review">{{product.review}</p>
+  </div> -->
+  </div>
   </a>
   {% endfor %}
+</div>
 </div>
 
 {% endblock %}
