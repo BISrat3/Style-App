@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse 
 from django.views.generic.base import TemplateView
-from .models import ShirtHome, OxfordShirt
+from .models import Products, ShirtHome, Category
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Auth
@@ -30,31 +30,36 @@ class Shirt(TemplateView):
         return context
 
 @method_decorator(login_required, name='dispatch')
-class ProductList(TemplateView):
+class ProductsList(TemplateView):
     template_name = "product_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
+        
         if name != None:
-            context["shirts"] = ShirtHome.objects.filter(
+            context["shirts"] = Products.objects.filter(
                 name__icontains=name, user=self.request.user)
         else:
-            context["shirts"] = ShirtHome.objects.all()
+            context["shirts"] = Products.objects.all()
         return context
 
-class OxfordList(TemplateView):
-    template_name = "oxford_shirt.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        name = self.request.GET.get("name")
-        if name != None:
-            context["shirts"] = OxfordShirt.objects.filter(
-                name__icontains=name, user=self.request.user)
-        else:
-            context["shirts"] = OxfordShirt.objects.all()
-        return context
+class CategoryList(TemplateView):
+    template_name = "category_list.html"
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     name = self.request.GET.get("name")
+        
+    #     if name != None:
+    #         context["shirts"] = Category.objects.filter(
+    #             name__icontains=name, user=self.request.user)
+    #     else:
+    #         context["shirts"] = Category.objects.all()
+    #     return context
+
+
 
 class Signup(View):
     def get(self, request):

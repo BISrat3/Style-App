@@ -1,10 +1,8 @@
 from django.contrib import admin
-from .models import ShirtHome, OxfordShirt, OverShirt, FlannelShirt, DressShirt, CubanShirt
+from .models import ShirtHome, Category, Products
 
 admin.site.register(ShirtHome)
-admin.site.register(OxfordShirt)
-admin.site.register(OverShirt)
-admin.site.register(FlannelShirt)
-admin.site.register(DressShirt)
-admin.site.register(CubanShirt)
+admin.site.register(Category)
+admin.site.register(Products)
+
 # Register your models here.
