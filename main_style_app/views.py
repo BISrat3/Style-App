@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse 
@@ -46,20 +47,86 @@ class ProductsList(TemplateView):
 
 
 class CategoryList(TemplateView):
-    template_name = "category_list.html"
+    template_name = "categories_list.html"
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
     #     name = self.request.GET.get("name")
         
     #     if name != None:
-    #         context["shirts"] = Category.objects.filter(
+    #         context["shirts"] = Category.filter(
     #             name__icontains=name, user=self.request.user)
     #     else:
     #         context["shirts"] = Category.objects.all()
     #     return context
 
 
+class OxfordList(TemplateView):
+    template_name = "oxford_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["shirts"] = Products.objects.filter( category_id= 5, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
+
+class ClassicList(TemplateView):
+    template_name = "classic_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["shirts"] = Products.objects.filter( category_id= 3, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
+
+
+class DenimList(TemplateView):
+    template_name = "classic_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["shirts"] = Products.objects.filter( category_id= 3, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
+
+
+class LinenList(TemplateView):
+    template_name = "linen_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["shirts"] = Products.objects.filter( category_id= 1, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
+
+class FlannelList(TemplateView):
+    template_name = "flannel_shirt.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["shirts"] = Products.objects.filter( category_id= 4, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
 
 class Signup(View):
     def get(self, request):
