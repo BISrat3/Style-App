@@ -1,16 +1,22 @@
+import imp
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views import View
-from django.http import HttpResponse 
+from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
 from .models import Products, ShirtHome, Category
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.template.loader import render_to_string
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+# from django_filters import rest_framework as filters
+
+# from rest_framework import generics
 
 class About(TemplateView):
+    # selected=Products.objects.filter(is_featured=True).order_by('category_id')
     template_name = "about.html"
     # def get(self, request):
     #     return HttpResponse("Product About")
@@ -40,7 +46,7 @@ class ProductsList(TemplateView):
         
         if name != None:
             context["shirts"] = Products.objects.filter(
-                name__icontains=name, user=self.request.user)
+                name__icontains=name)
         else:
             context["shirts"] = Products.objects.all()
         return context
@@ -95,7 +101,7 @@ class DenimList(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         # if name != None:
-        context["shirts"] = Products.objects.filter( category_id= 3, 
+        context["shirts"] = Products.objects.filter(category_id= 3, 
             )
         # else:
         #     context["shirts"] = Products.objects.all()
@@ -142,3 +148,33 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+
+def filter_price(request):
+    minimumPrice = request.GET['minimumPrice']
+    maximumPrice = request.GET['maximumPrice']
+    allProducts = Products.objects.all().order_by('price').distinct()
+    allProducts = allProducts.filter(products__price__=minimumPrice)
+    allProducts = allProducts.filter(products__price__=maximumPrice)
+
+#     data = render_to_string('product_list.html', {'selected': allProducts})
+#     return JsonResponse({'selected': data})
+
+# def filter_price(request):
+#     product_filter = RangeFilter(request.GET)
+#     return render(request, 'product_list.html',{'product_filter': product_filter})
+
+
+# class ProductFilter(filters.FilterSet):
+#     min_price = filters.NumberFilter(field_name="price", lookup_expr='gte')
+#     max_price = filters.NumberFilter(field_name="price", lookup_expr='lte')
+
+#     class Meta:
+#         model = Products
+#         fields = ['min_price', 'max_price']
+
+
+# class ProductList(generics.ListAPIView):
+#     queryset = Products.objects.all()
+#     filter_backends = (filters.DjangoFilterBackend,)
+#     filterset_class = ProductFilter

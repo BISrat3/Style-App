@@ -54,35 +54,47 @@
         <h3 class="h3_categories"><strong>Filters</strong></h3>
         <hr />
       </div>
+      <div class="card mb-4">
+        <h5 class="h3_categories">Price</h5>
+        <div class="list-group list-group-flush">
+          <p class="list-group-item"> 
+            <input type="range" id="rangeInput" min="0" max="700" value="{{minMaxPrice.price}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} oninput="maxPrice.value=this.value"/>
+            <!-- min="0" max="700"  -->
+          </p><br />
+            <!-- <p>{{minMaxPrice.price__min}}-{{minMaxPrice.price__max}}</p> -->
+          <p class="list-group-item">
+            Range: <input type="number" value="{{minMaxPrice.price}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control" onkeyup="rangeInput.value= this.value" id="maxPrice" min="0" max="700" />
+          </p>
+        </div>
+      </div>
       <div class="filter-price p-t-22 p-b-50 bo3">
-        <div class="m-text15 p-b-17">
+        <!-- <div class="m-text15 p-b-17">
           Price
-      </div>
-      <div class="wra-filter-bar">
-        <div id="filter-bar"></div>
-      </div>
+      </div> -->
+      <!-- <div class="wra-filter-bar">
+       <div id="filter-bar"></div>
+      </div> -->
       <div class="flex-sb-m flex-w p-t-16">
         <div class="w-size11">
           <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
             <h3 class="h3_categories "><strong>Filter</strong></h3>
           </button>
-        </div>  
+        </div> 
       </div>
-      
       <div>
-        Price: $ <span class="price_range">10</span>
-        - $ <span class="upto_range">600</span>
-      </div>
+        <!-- Price: $ <span class="price_range">10</span>
+        - $ <span class="upto_range">600</span>--->
+       </div>
     </div>
   </div>
 </div>
   <div class="product_galary">
     {% for shirt in shirts %}
-    <a href="">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
+    <!-- <a href=""> -->
+      <div class="product_card">
+        <div class="div-product-image">
+          <figure class="image is-square ">
+            <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
           </figure>
         </div>
         <div class="card-header">
@@ -94,13 +106,13 @@
           </div>
           
         </div>
+      </div>
   <!-- <div class="card-header">
   </div> -->
   <!-- <div>
     <p class="card-product-review">{{product.review}</p>
   </div> -->
-  </div>
-  </a>
+  <!-- </a> -->
   {% endfor %}
 </div>
 </div>
