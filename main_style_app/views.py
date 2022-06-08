@@ -141,13 +141,24 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        print(context)
         # name = self.request.GET.get("name")
-        context["shirts"] = Products.objects.filter(category_id=3)
+        context["shirts"] = Products.objects.get(id__contains= context['products'].id)
         return context
 
 class OxfordDetail(DetailView):
     model = Products
     template_name = "oxford_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # id = self.request.GET.get("id")
+        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
+        return context
+
+class LinenDetail(DetailView):
+    model = Products
+    template_name = "linen_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

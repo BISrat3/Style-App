@@ -8,6 +8,7 @@ urlpatterns =[
     path('products/category_id/<int:pk>', views.ProductDetail.as_view(), name= "product_detail"),
     path('products/oxfordshirt', views.OxfordList.as_view(), name= "oxford_shirt"),
     path('products/oxfordshirt/<int:pk>/', views.OxfordDetail.as_view(), name= "oxford_detail"),
+    path('products/linenshirt/<int:pk>/', views.LinenDetail.as_view(), name= "linen_detail"),
     path('products/denimshirt', views.DenimList.as_view(), name= "denim_shirt"),
     path('products/flannelshirt', views.FlannelList.as_view(), name= "flannel_shirt"),
     path('products/linenshirt', views.LinenList.as_view(), name= "linen_shirt"),
