@@ -5,29 +5,32 @@
 {% block content %}
 
 <h1 class="header pt-5">Denim Styles </h1>
-<div class="gallery">
+<div class="product_galary">
     {% for shirt in shirts %}
-    <a href="{% url 'login' %}">
-    <div class="card">
-        <div class="card-image">
-        <figure class="image is-square">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
-        </figure>
+    <!-- <a href=""> -->
+      <div class="product_card">
+        <div class="div-product-image">
+          <figure class="image is-square ">
+            <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
+          </figure>
         </div>
         <div class="card-header">
-        <p class="card-header-title">{{shirt.name}}</p>
-        <div class="card-header-price">
+          <div class="card-header-title">
+            <p >{{shirt.name}}</p> 
+          </div>
+          <div class="product-price">
             <p >${{shirt.price}}</p>
           </div>
+          
         </div>
-    </div>
-    </a>
-    {% empty %}
-    <article class="message">
-    <div class="message-header">
-        <p>No Shirts Available</p>
-    </div>
-    </article>
-    {% endfor %}
+      </div>
+  <!-- <div class="card-header">
+  </div> -->
+  <!-- <div>
+    <p class="card-product-review">{{product.review}</p>
+  </div> -->
+  <!-- </a> -->
+  {% endfor %}
+</div>
 </div>
 {% endblock %}
