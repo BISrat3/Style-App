@@ -4,7 +4,7 @@ from django.views import View
 from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
 
-from .models import Products, ShirtHome, Category
+from .models import Products, ShirtHome, Category, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
@@ -141,8 +141,18 @@ class ProductDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        name = self.request.GET.get("name")
-        context["shirts"] = Products.objects.filter(category_id=3, product_id=1)
+        # name = self.request.GET.get("name")
+        context["shirts"] = Products.objects.filter(category_id=3)
+        return context
+
+class OxfordDetail(DetailView):
+    model = Products
+    template_name = "oxford_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # id = self.request.GET.get("id")
+        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
 class Signup(View):
@@ -167,6 +177,15 @@ def filter_price(request):
     allProducts = Products.objects.all().order_by('price').distinct()
     allProducts = allProducts.filter(products__price__=minimumPrice)
     allProducts = allProducts.filter(products__price__=maximumPrice)
+
+
+class ReveiwCreate(View):
+    def post(self, request, pk):
+        comment= request.POST.get('content')
+        shirt = Products.objects.get(pk = pk)
+        Review.objects.create(comment = comment, shirt = shirt)
+        return redirect('product_detail.html')
+
 
 #     data = render_to_string('product_list.html', {'selected': allProducts})
 #     return JsonResponse({'selected': data})
