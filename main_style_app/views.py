@@ -1,3 +1,4 @@
+from itertools import product
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views import View
@@ -152,7 +153,7 @@ class OxfordDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
@@ -186,6 +187,16 @@ class DenimDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
+class ClassicDetail(DetailView):
+    model = Products
+    template_name = "classic_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # id = self.request.GET.get("id")
+        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
+        return context
+
 class Signup(View):
     def get(self, request):
         form = UserCreationForm()
@@ -212,10 +223,11 @@ def filter_price(request):
 
 class ReveiwCreate(View):
     def post(self, request, pk):
-        comment= request.POST.get('content')
-        shirt = Products.objects.get(pk = pk)
-        Review.objects.create(comment = comment, shirt = shirt)
-        return redirect('product_detail.html')
+        comment= request.POST.get('comment')
+        product = Products.objects.get(pk = pk)
+        Review.objects.create(comment=comment, product = product)
+        # if shirt.catagory_id=4
+        return redirect ('oxford_detail.html', pk.pk)
 
 
 #     data = render_to_string('product_list.html', {'selected': allProducts})

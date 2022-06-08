@@ -21,7 +21,10 @@ h3 {
 .title {
     color: #ffffff;
 }
-
+.add_Rating {
+    margin-top: 10px;
+    padding: 20px;
+}
 .header{
     color:black;
     text-align: center;
@@ -142,7 +145,11 @@ hr {
    justify-content: center;
 }
 
-
+button{
+    width: 80px;
+    height:30px;
+    margin-top: 10px;
+}
 
 .card-header-price{
     margin-top: 10px;
