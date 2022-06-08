@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% block content %}
+<h1 class="header"> Denim {{shirts.name}}</h1>
+<br />
+<div class="detail_list">
+    <h3 class="div-product-image"></h3>
+    <div class="detailimg">
+        <img src="{{shirts.img}}" alt="{{shirt.name}}" />
+    </div>
+    <div class="div-product-image">
+        <span><b>{{shirts.name}}</b></span>
+        <span>{{shirts.description}}</span>
+      </div>
+      
+<div class="detail__container">
+    <div class="buttons">
+        <a href="" class="button is-info">
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

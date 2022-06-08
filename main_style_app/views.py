@@ -176,6 +176,16 @@ class FlannelDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
+class DenimDetail(DetailView):
+    model = Products
+    template_name = "denim_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # id = self.request.GET.get("id")
+        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
+        return context
+
 class Signup(View):
     def get(self, request):
         form = UserCreationForm()
