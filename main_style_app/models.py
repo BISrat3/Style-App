@@ -19,7 +19,7 @@ class ShirtHome(models.Model):
 class Category(models.Model):
     name=models.CharField(max_length=200)
     Type = models.CharField(max_length=200)
-    
+
     def __str__(self):
         return self.name
     
@@ -35,3 +35,12 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+    comment = models.TextField(max_length=400)
+    shirt = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='reviews')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment
+        

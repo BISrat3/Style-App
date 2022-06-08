@@ -1,13 +1,14 @@
-import imp
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
+
 from .models import Products, ShirtHome, Category
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
+from django.views.generic import DetailView
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -95,13 +96,13 @@ class ClassicList(TemplateView):
 
 
 class DenimList(TemplateView):
-    template_name = "classic_shirt.html"
+    template_name = "denim_shirt.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         # if name != None:
-        context["shirts"] = Products.objects.filter(category_id= 3, 
+        context["shirts"] = Products.objects.filter(category_id= 2, 
             )
         # else:
         #     context["shirts"] = Products.objects.all()
@@ -132,6 +133,16 @@ class FlannelList(TemplateView):
             )
         # else:
         #     context["shirts"] = Products.objects.all()
+        return context
+
+class ProductDetail(DetailView):
+    model = Products
+    template_name = "product_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["shirts"] = Products.objects.filter(category_id=3, product_id=1)
         return context
 
 class Signup(View):

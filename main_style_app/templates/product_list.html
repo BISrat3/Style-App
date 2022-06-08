@@ -14,7 +14,6 @@
   </div>
   <!--  This anchor tag will redirect back to artist list without a query param -->
   <a class="button is-dark" href="{% url 'product_list' %}">Clear Search</a>
-  
 </form>
 <div class="products_list">
   <div class="categories">
@@ -90,7 +89,7 @@
 </div>
   <div class="product_galary">
     {% for shirt in shirts %}
-    <!-- <a href=""> -->
+    <a href="{% url 'product_detail' shirt.pk %}">
       <div class="product_card">
         <div class="div-product-image">
           <figure class="image is-square ">
