@@ -36,6 +36,8 @@
             <span class="span_background">{{forloop.counter}}.</span>
             <span class="span_background"> {{review.comment}}</span> 
             <span class="createdate"> {{review.date}}</span> <br/>
+
+            
             <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
                 <span class="icon icon_btn">
                     <i class="fas fa-edit"></i>
@@ -46,6 +48,7 @@
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </a>
+        
         </div>
     </div>
     {% empty %}

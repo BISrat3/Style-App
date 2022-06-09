@@ -18,6 +18,21 @@ h3 {
     color: #ffffff;
 }
 
+.header_style{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    /* margin-top: -20px; */
+    font-size: 20px;
+    margin-left: 10%;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.header_style_div{
+    margin-top: px;
+}
+
 .title {
     color: #ffffff;
 }
@@ -105,6 +120,13 @@ p {
     max-width: 250px;
     max-height: 200px;
 } */
+
+body,
+html {
+    height: 100%
+}
+
+
 .detail__reviews {
     max-width: 80%;
     margin-left: 20px;
@@ -129,7 +151,7 @@ p {
 
 .createdate{
     text-align: right;
-    
+
 }
 
 .product_galary .card{
@@ -195,6 +217,26 @@ button{
     padding-right: .5rem;
     padding-bottom: 0rem;
     margin-top: 20px;
+    bottom: 0;
+    position: fixed;
     /* position: fixed; */
     /* bottom: 0; */
+}
+.footer_tag{
+    bottom: 0px;
+    margin-top: 10px;
+    background-color: black;
+    color: #ffffff;
+}
+.Social_links{
+    text-align: center;
+
+}
+.footer_text{
+    text-align: center;
+    font-size: 15px;
+}
+
+.footer_tag a{
+    color: white;
 }

@@ -41,5 +41,9 @@ class Review(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='reviews')
     date = models.DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
         return self.comment
+     
+    class Meta:
+        ordering = ["-date"]

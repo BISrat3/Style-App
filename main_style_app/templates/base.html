@@ -15,21 +15,25 @@
 </head>
 <body>
   
-    <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">Home</a>
+          
             <a role="button" class="navbar-burger is-left" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
-            </a>
+            </a> 
         </div>
+       
         <div class="navbar-menu navbar-start">
             <a class="navbar-item" href="/about">About</a>
+           
         </div>
-        <div class="navbar-menu navbar-end">
-            <a class="navbar-item" href="{% url 'product_list' %}">Shirts</a>
+        <div class="navbar-item header_style_div">
+          <strong><h1 class="header_style is-center" >Men's Style Store</h1></strong>
         </div>
+        <!--  -->
         {% if user.is_authenticated %}
         <div class="navbar-menu navbar-end">
           <span class="navbar-item">Welcome: {{user.username}}</span>
@@ -47,7 +51,55 @@
         {% block content %}{% endblock %}
     </div>
 </div>
-<footer class="footer is-success">
+
+
+<footer class="bg-dark is fixed text-center text-white footer_tag">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0 Social_links">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3 footer_text" style="background-color: hsla(140, 39%, 95%, 0.322);"> Copy right
+    <a class="text-white" href="https://mdbootstrap.com/">Bisrat Amtataw</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<!-- <footer class="footer is-success">
     <div class="content has-text-centered ">
       <p>
         <strong>Copyright</strong> by <a href="https://jgthms.com">Bisrat Amtataw</a>
@@ -59,6 +111,6 @@
         </a>
       </p>
     </div>
-</footer>
+</footer> -->
 </body>
 </html>
