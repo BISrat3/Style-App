@@ -26,11 +26,12 @@ h3 {
     /* margin-top: -20px; */
     font-size: 20px;
     margin-left: 10%;
+    
     font-family: 'Bebas Neue', cursive;
 }
 
 .header_style_div{
-    margin-top: px;
+    margin-top: -10px;
 }
 
 .title {
@@ -120,11 +121,6 @@ p {
     max-width: 250px;
     max-height: 200px;
 } */
-
-body,
-html {
-    height: 100%
-}
 
 
 .detail__reviews {
@@ -221,6 +217,15 @@ button{
     position: fixed;
     /* position: fixed; */
     /* bottom: 0; */
+}
+.Footer-form{
+    
+    color: white;
+    margin-bottom: 100px;
+
+}
+.hidden{
+    display: hidden;
 }
 .footer_tag{
     bottom: 0px;

@@ -27,16 +27,16 @@
         </div>
        
         <div class="navbar-menu navbar-start">
-            <a class="navbar-item" href="/about">About</a>
+            <a class="navbar-item" href="{% url 'product_list' %}">Shirts</a>
            
         </div>
         <div class="navbar-item header_style_div">
-          <strong><h1 class="header_style is-center" >Men's Style Store</h1></strong>
+          <strong><h1 class="header_style " >Men's Style Store</h1></strong>
         </div>
-        <!--  -->
+        
         {% if user.is_authenticated %}
         <div class="navbar-menu navbar-end">
-          <span class="navbar-item">Welcome: {{user.username}}</span>
+          
           <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
         </div>
         {% else %}
