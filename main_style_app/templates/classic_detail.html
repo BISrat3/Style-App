@@ -3,14 +3,19 @@
 <h1 class="header"> Classic {{shirts.name}}</h1>
 <br />
 <div class="detail_list">
-    <h3 class="div-product-image"></h3>
-    <div class="detailimg">
+    <div class="image_detail">
+        <span><b>{{shirts.name}}</b></span>
         <img src="{{shirts.img}}" alt="{{shirt.name}}" />
     </div>
-    <div class="div-product-image">
-        <span><b>{{shirts.name}}</b></span>
-        <span>{{shirts.description}}</span>
+    <div class="detail_description">
+        <br />
+        <span><strong>Description: </strong><br/> {{shirts.description}}</span>
+        <br />
+        <span><strong>Price:</strong> ${{shirts.price}}</span>
       </div>    
+      <div class="detail__reviews mb-5"> 
+        <h4 class="h4_tag">Reviews</h3>
+        <hr/>
         <div class="add_Rating">
         <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk %}" method="post">
             {% csrf_token %}
@@ -25,9 +30,6 @@
             </div>
         </form>
     </div>
-      <div class="detail__reviews mb-5"> 
-        <h3 class="reviews_h3 is-3">Reviews</h3>
-        <hr/>
         {% for review in reviews %}
         <div class="span_background">
             <span class="span_background">{{forloop.counter}}.</span>
@@ -39,21 +41,5 @@
     <span >No comments</span>
     {% endfor %}
     </div>
-        
-<div class="detail__container">
-    <div class="buttons">
-        <a href="" class="button is-info">
-            <span class="icon">
-                <i class="fas fa-edit"></i>
-            </span>
-        </a>
-        <a href="" class="button is-danger">
-            <span class="icon">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
-    </div>
 </div>
-
-
 {% endblock %}
