@@ -243,6 +243,10 @@ class ReviewUpdate(UpdateView):
     def get_success_url(self):
         return reverse('oxford_shirt')
 
+class ReviewDelete(DeleteView):
+    model = Review
+    template_name = "comment_delete.html"
+    success_url = "/products/"
 
     
         # return redirect (f'products/oxfordshirt/{prod.cat_id}/' )

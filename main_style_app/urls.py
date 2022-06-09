@@ -18,6 +18,7 @@ urlpatterns =[
     path('products/classicshirt', views.ClassicList.as_view(), name= "classic_shirt"),
     path('products/comment/<int:pk>', views.ReveiwCreate.as_view(), name="create_comment"),
     path('products/comment/<int:pk>/update', views.ReviewUpdate.as_view(), name="comment_update"),
+    path('products/comment/<int:pk>/delete', views.ReviewDelete.as_view(), name="comment_delete"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', views.Signup.as_view(), name="signup"),
 ]
