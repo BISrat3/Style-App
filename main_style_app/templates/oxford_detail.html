@@ -17,6 +17,7 @@
       <div class="detail__reviews mb-5"> 
         <h4 class="h4_tag">Reviews</h3>
         <hr/>
+
         <div class="add_Rating">
             <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk %}" method="post">
                 {% csrf_token %}
@@ -27,6 +28,7 @@
                     <div class="control">
                         <textarea class="input" type="text" name="comment" placeholder="comment" required
                         ></textarea>
+
                     </div>
                 </div>
             </form>
@@ -48,7 +50,8 @@
                     <i class="fas fa-trash-alt"></i>
                 </span>
             </a>
-        
+          
+
         </div>
     </div>
     {% empty %}

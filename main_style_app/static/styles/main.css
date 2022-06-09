@@ -11,7 +11,11 @@ body{
     text-align: center;
     text-decoration-color: darkolivegreen;
 }
-
+.newlabel{
+    font-size: 30px;
+    color: aquamarine;
+    margin-bottom: -20px;
+}
 h1,
 h2,
 h3 {

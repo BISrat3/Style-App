@@ -230,8 +230,10 @@ def filter_price(request):
 @method_decorator(login_required, name='dispatch')
 class ReveiwCreate(View):
     def post(self, request, pk):
+        # print(user_id)
         comment= request.POST.get('comment')
         product = Products.objects.get(pk = pk)
+
         Review.objects.create(comment=comment, product = product)
         return redirect('oxford_detail', pk=pk)
         # prod = Review.objects.get(pk = pk)
