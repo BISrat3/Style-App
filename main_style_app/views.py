@@ -145,7 +145,8 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         print(context)
-        # name = self.request.GET.get("name")
+        # name = self.request.GET.get(" name")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id)
         return context
 
@@ -166,6 +167,7 @@ class LinenDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
@@ -176,6 +178,7 @@ class FlannelDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
@@ -186,6 +189,7 @@ class DenimDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
@@ -196,6 +200,7 @@ class ClassicDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 

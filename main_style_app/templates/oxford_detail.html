@@ -25,7 +25,7 @@
                         <input class="button is-primary" type="submit" value="Add Reviews" />
                     </div>
                     <div class="control">
-                        <textarea class="input" type="text" name="comment" placeholder="review" required
+                        <textarea class="input" type="text" name="comment" placeholder="comment" required
                         ></textarea>
                     </div>
                 </div>
@@ -34,7 +34,8 @@
         {% for review in reviews %}
         <div class="comments">
             <span class="span_background">{{forloop.counter}}.</span>
-            <span class="span_background"> {{review.comment}}</span> <br/>
+            <span class="span_background"> {{review.comment}}</span> 
+            <span class="createdate"> {{review.date}}</span> <br/>
             <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
                 <span class="icon icon_btn">
                     <i class="fas fa-edit"></i>
@@ -52,7 +53,6 @@
     {% endfor %}
     </div>  
 </div>
-
 </div>
 
 

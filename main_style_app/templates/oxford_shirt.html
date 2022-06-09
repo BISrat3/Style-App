@@ -5,11 +5,11 @@
 {% block content %}
 
 <h1 class="header pt-5">Oxford Styles </h1>
-<div class="gallery">
+<div class="product_galary">
     {% for shirt in shirts %}
     <a href="{% url 'oxford_detail' shirt.pk  %}">
-    <div class="card">
-        <div class="card-image">
+    <div class="product_card">
+        <div class="div-product-image">
         <figure class="image is-square">
             <img src="{{shirt.img}}" alt="{{shirt.name}}" />
         </figure>
@@ -21,7 +21,6 @@
           </div>
         </div>
     </div>
-    
     </a>
     {% empty %}
     <article class="message">
