@@ -1,15 +1,17 @@
 from itertools import product
+from sre_constants import SUCCESS
 from unicodedata import category
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
-
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Products, ShirtHome, Category, Review
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
 from django.views.generic import DetailView
+from django.urls import reverse
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -220,16 +222,27 @@ def filter_price(request):
     allProducts = allProducts.filter(products__price__=minimumPrice)
     allProducts = allProducts.filter(products__price__=maximumPrice)
 
-
+@method_decorator(login_required, name='dispatch')
 class ReveiwCreate(View):
     def post(self, request, pk):
         comment= request.POST.get('comment')
         product = Products.objects.get(pk = pk)
         Review.objects.create(comment=comment, product = product)
-        # if shirt.catagory_id=4
-        return redirect ('oxford_detail.html', pk.pk)
+        return redirect('oxford_detail', pk=pk)
+        # prod = Review.objects.get(pk = pk)
+        # print(prod.cat_id)
+        # if Category.cat_id == 5:  
+            # success_url = f'products/oxfordshirt/{prod.cat_id}/'
+            # return redirect (f'products/oxfordshirt/{prod.cat_id}/')
+        
 
-
+class ReviewUpdate(UpdateView):
+    model = Review
+    fields = ['comment']
+    template_name = "review_update.html"
+    def get_success_url(self):
+        return reverse('review_update', kwargs= {'pk':self.object.pk})
+        # return redirect (f'products/oxfordshirt/{prod.cat_id}/' )
 #     data = render_to_string('product_list.html', {'selected': allProducts})
 #     return JsonResponse({'selected': data})
 

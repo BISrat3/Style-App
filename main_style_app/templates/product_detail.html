@@ -15,7 +15,35 @@
       <span><b>{{shirts.name}}</b></span>
       <span>{{shirts.description}}</span>
     </div>
-
+    div class="add_Rating">
+    <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk %}" method="post">
+        {% csrf_token %}
+        <div class="field has-addons">
+            <div class="control">
+                <input class="button is-primary" type="submit" value="Add Reviews" />
+            </div>
+            <div class="control">
+                <textarea class="input" type="text" name="comment" placeholder="review" required
+                ></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+  <div class="detail__reviews mb-5"> 
+    <h3 class="reviews_h3 is-3">Reviews</h3>
+    <hr/>
+    {% for review in reviews %}
+    <div class="span_background">
+        <span class="span_background">{{forloop.counter}}.</span>
+        <span class="span_background"> {{review.comment}}</span> <br/>
+        
+    </div>
+</div>
+{% empty %}
+<span >No comments</span>
+{% endfor %}
+</div>
+    
 <div class="detail__container">
     <div class="buttons">
         <a href="" class="button is-info">
