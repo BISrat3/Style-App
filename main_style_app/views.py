@@ -239,9 +239,12 @@ class ReveiwCreate(View):
 class ReviewUpdate(UpdateView):
     model = Review
     fields = ['comment']
-    template_name = "review_update.html"
+    template_name = "comment_update.html"
     def get_success_url(self):
-        return reverse('review_update', kwargs= {'pk':self.object.pk})
+        return reverse('oxford_shirt')
+
+
+    
         # return redirect (f'products/oxfordshirt/{prod.cat_id}/' )
 #     data = render_to_string('product_list.html', {'selected': allProducts})
 #     return JsonResponse({'selected': data})
