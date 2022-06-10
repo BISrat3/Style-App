@@ -4,10 +4,10 @@
 
 {% block content %}
 
-<h1 class="header pt-5">Oxford Styles </h1>
+<h1 class="header pt-5">Shirt Styles </h1>
 <div class="product_galary">
     {% for shirt in shirts %}
-    <a href="{% url 'oxford_detail' shirt.pk  %}">
+    <a href="{% url 'shirt_detail' shirt.pk  %}">
     <div class="product_card">
         <div class="div-product-image">
         <figure class="image is-square">

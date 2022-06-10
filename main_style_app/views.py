@@ -71,8 +71,8 @@ class CategoryList(TemplateView):
     #     return context
 
 
-class OxfordList(TemplateView):
-    template_name = "oxford_shirt.html"
+class ShirtList(TemplateView):
+    template_name = "shirt_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -163,9 +163,9 @@ class ProductDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id)
         return context
 
-class OxfordDetail(DetailView):
+class ShirtDetail(DetailView):
     model = Products
-    template_name = "oxford_detail.html"
+    template_name = "shirt_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -240,7 +240,7 @@ class ReveiwCreate(View):
         reviewerUser= User.objects.get(id= user_id)
         print(reviewerUser)
         Review.objects.create(comment=comment, product = product, Reviewers=reviewerUser)
-        return redirect('oxford_detail', pk=pk)
+        return redirect('shirt_detail', pk=pk)
         # prod = Review.objects.get(pk = pk)
         # print(prod.cat_id)
         # if Category.cat_id == 5:  
