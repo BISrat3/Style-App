@@ -138,8 +138,8 @@ class ShoesList(TemplateView):
 
 
 
-class FlannelList(TemplateView):
-    template_name = "flannel_shirt.html"
+class WatchesList(TemplateView):
+    template_name = "watches_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -174,9 +174,9 @@ class ShirtDetail(DetailView):
         return context
 
 
-class FlannelDetail(DetailView):
+class WatchesDetail(DetailView):
     model = Products
-    template_name = "flannel_detail.html"
+    template_name = "watches_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
