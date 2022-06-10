@@ -32,8 +32,8 @@ class About(TemplateView):
 #         self.price = price
 
 
-class Shirt(TemplateView):
-    template_name ="shirt_home.html"
+class Store(TemplateView):
+    template_name ="mens_cloth_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -123,8 +123,8 @@ class ClassicList(TemplateView):
         return context
 
 
-class DenimList(TemplateView):
-    template_name = "denim_shirt.html"
+class ShoesList(TemplateView):
+    template_name = "shoes_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -185,9 +185,9 @@ class FlannelDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
-class DenimDetail(DetailView):
+class ShoesDetail(DetailView):
     model = Products
-    template_name = "denim_detail.html"
+    template_name = "shoes_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
