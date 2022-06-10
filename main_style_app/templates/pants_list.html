@@ -5,7 +5,7 @@
 {% block content %}
 
 <h1 class="header pt-5">Pants </h1>
-<div class="product_galary">
+<div class="product_galary ">
     {% for pant in pants %}
     <a href="{% url 'pants_detail' pant.pk %}">
       <div class="product_card">

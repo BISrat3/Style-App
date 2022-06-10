@@ -234,7 +234,7 @@ class Signup(View):
 @method_decorator(login_required, name='dispatch')
 class ReveiwCreate(View):
     def post(self, request, pk, user_id):
-        # print(user_id)
+        print(user_id)
         comment= request.POST.get('comment')
         product = Products.objects.get(pk = pk)
         reviewerUser= User.objects.get(id= user_id)

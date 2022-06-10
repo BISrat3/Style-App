@@ -3,7 +3,6 @@
 <h1 class="header"> Oxford {{shirts.name}}</h1>
 <br />
 <div class="detail_list">
-    <!-- <h3 class="div-product-image"></h3> -->
     <div class="image_detail">
         <span><b>{{shirts.name}}</b></span>
         <img src="{{shirts.img}}" alt="{{shirt.name}}" />
@@ -23,7 +22,7 @@
                 {% csrf_token %}
                 <div class="field has-addons">
                     <div class="control">
-                        <input class="button is-primary" type="submit" value="Add Reviews" />
+                        <input class="button is-primary" type="submit" value="Review" />
                     </div>
                     <div class="control">
                         <textarea class="input" type="text" name="comment" placeholder="comment" required
@@ -33,12 +32,14 @@
                 </div>
             </form>
         </div>
+        
         {% for review in reviews %}
         <div class="comments">
             <span class="span_background">{{forloop.counter}}.</span>
-            <span class="span_background"> {{review.comment}}</span> 
+            <span class="span_background"> {{review.comment}}</span>
+            <br />
             <span class="createdate"> {{review.date}}</span> <br/>
-
+            <br />
             {% if user.is_authenticated %}
             {% if review.Reviewers_id == user.id%}
             <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
@@ -53,15 +54,12 @@
             </a>
             {% endif %}
             {% endif %}
-
         </div>
+        {% empty %}
+        <span >No comments</span>
+        {% endfor %}
     </div>
-    {% empty %}
-    <span >No comments</span>
-    {% endfor %}
     </div>  
 </div>
 </div>
-
-
 {% endblock %}
