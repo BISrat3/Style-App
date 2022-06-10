@@ -109,8 +109,8 @@ class PantDetail(DetailView):
         return context
 
         
-class ClassicList(TemplateView):
-    template_name = "classic_shirt.html"
+class ShortsList(TemplateView):
+    template_name = "shorts_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -196,9 +196,9 @@ class ShoesDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
-class ClassicDetail(DetailView):
+class ShortsDetail(DetailView):
     model = Products
-    template_name = "classic_detail.html"
+    template_name = "shorts_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
