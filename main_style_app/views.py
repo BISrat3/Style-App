@@ -6,7 +6,7 @@ from django.views import View
 from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Products, ShirtHome, Category, Review
+from .models import Products, ShirtHome, Category, Review, User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
@@ -233,7 +233,7 @@ class ReveiwCreate(View):
         # print(user_id)
         comment= request.POST.get('comment')
         product = Products.objects.get(pk = pk)
-
+        # reviewerUser= User.objects.get(user_id,user_id)
         Review.objects.create(comment=comment, product = product)
         return redirect('oxford_detail', pk=pk)
         # prod = Review.objects.get(pk = pk)

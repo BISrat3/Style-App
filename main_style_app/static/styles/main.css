@@ -1,7 +1,11 @@
+*{
+    margin: 0;
+}
+
 body{
     background-color: whitesmoke;
     color:black;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     margin: auto;
 }
 
@@ -58,6 +62,11 @@ h3 {
     padding-left: 40px;
     color:black;
     max-width: 50%;
+}
+
+.login-form{
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .gallery {
@@ -218,18 +227,19 @@ button{
     padding-bottom: 0rem;
     margin-top: 20px;
     bottom: 0;
-    position: fixed;
     /* position: fixed; */
     /* bottom: 0; */
 }
 .Footer-form{
-    
+
     color: white;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
+    bottom: 0;
+    position: fixed;
 
 }
 .hidden{
-    display: hidden;
+    display: none;
 }
 .footer_tag{
     bottom: 0px;
