@@ -15,7 +15,7 @@ from django.urls import reverse
 # Auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-# from django_filters import rest_framework as filters
+
 
 # from rest_framework import generics
 
@@ -223,12 +223,12 @@ class Signup(View):
             return render(request, "registration/signup.html", context)
 
 
-def filter_price(request):
-    minimumPrice = request.GET['minimumPrice']
-    maximumPrice = request.GET['maximumPrice']
-    allProducts = Products.objects.all().order_by('price').distinct()
-    allProducts = allProducts.filter(products__price__=minimumPrice)
-    allProducts = allProducts.filter(products__price__=maximumPrice)
+# def filter_price(request):
+#     minimumPrice = request.GET['minimumPrice']
+#     maximumPrice = request.GET['maximumPrice']
+#     allProducts = Products.objects.all().order_by('price').distinct()
+#     allProducts = allProducts.filter(products__price__=minimumPrice)
+#     allProducts = allProducts.filter(products__price__=maximumPrice)
 
 
 @method_decorator(login_required, name='dispatch')
