@@ -112,14 +112,14 @@ class DenimList(TemplateView):
         return context
 
 
-class LinenList(TemplateView):
-    template_name = "linen_shirt.html"
+class PantList(TemplateView):
+    template_name = "pants_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         # if name != None:
-        context["shirts"] = Products.objects.filter( category_id= 1, 
+        context["pants"] = Products.objects.filter( category_id= 1, 
             )
         # else:
         #     context["shirts"] = Products.objects.all()
@@ -160,15 +160,15 @@ class OxfordDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
-class LinenDetail(DetailView):
+class PantDetail(DetailView):
     model = Products
-    template_name = "linen_detail.html"
+    template_name = "pants_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
         context['reviews'] = Review.objects.filter(product=self.object)
-        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
+        context["pants"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
 class FlannelDetail(DetailView):
@@ -227,14 +227,16 @@ def filter_price(request):
     allProducts = allProducts.filter(products__price__=minimumPrice)
     allProducts = allProducts.filter(products__price__=maximumPrice)
 
+
 @method_decorator(login_required, name='dispatch')
 class ReveiwCreate(View):
-    def post(self, request, pk):
+    def post(self, request, pk, user_id):
         # print(user_id)
         comment= request.POST.get('comment')
         product = Products.objects.get(pk = pk)
-        # reviewerUser= User.objects.get(user_id,user_id)
-        Review.objects.create(comment=comment, product = product)
+        reviewerUser= User.objects.get(id= user_id)
+        print(reviewerUser)
+        Review.objects.create(comment=comment, product = product, Reviewers=reviewerUser)
         return redirect('oxford_detail', pk=pk)
         # prod = Review.objects.get(pk = pk)
         # print(prod.cat_id)

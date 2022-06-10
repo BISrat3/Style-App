@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% comment %} for head title tags and helping us with SEO {% endcomment %}
-{% block title %}Shirts{% endblock  %}
+{% block title %}Pants{% endblock  %}
 
 {% block content %}
 
-<h1 class="header pt-5">Linen Styles </h1>
+<h1 class="header pt-5">Pants </h1>
 <div class="product_galary">
-    {% for shirt in shirts %}
-    <a href="{% url 'linen_detail' shirt.pk %}">
+    {% for pant in pants %}
+    <a href="{% url 'pants_detail' pant.pk %}">
       <div class="product_card">
         <div class="div-product-image">
           <figure class="image is-square ">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
+            <img src="{{pant.img}}" alt="{{pant.name}}" class="image_product"/>
           </figure>
         </div>
         <div class="card-header">
           <div class="card-header-title">
-            <p >{{shirt.name}}</p> 
+            <p >{{pant.name}}</p> 
           </div>
           <div class="product-price">
-            <p >${{shirt.price}}</p>
+            <p >${{pant.price}}</p>
           </div>
           
         </div>
