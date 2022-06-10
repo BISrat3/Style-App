@@ -135,3 +135,8 @@ REST_FRAMEWORK = {
 STATIC_URL = 'static/'
 STATICFILES_DIRS =[os.path.join(BASE_DIR, 'main_style_app/static')]
 
+# Other settings above
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
