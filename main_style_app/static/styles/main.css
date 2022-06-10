@@ -63,10 +63,28 @@ h3 {
     color:black;
     max-width: 50%;
 }
-
+.id_username{
+    font-size: 30px;
+    color: yellow;
+}
 .login-form{
     text-align: center;
     padding-bottom: 20px;
+}
+.helptext{
+    margin-left: 200px;
+    display: block;
+}
+
+
+.price_filter{
+    background-color: lightgrey;
+
+}
+
+.input_signup{
+    margin-left: 500px;
+    
 }
 
 .gallery {
@@ -233,14 +251,14 @@ button{
 .Footer-form{
 
     color: white;
-    margin-bottom: 200px;
+    margin-bottom: 500px;
     bottom: 0;
     position: fixed;
 
 }
-.hidden{
+/* .hidden{
     display: none;
-}
+} */
 .footer_tag{
     bottom: 0px;
     margin-top: 10px;

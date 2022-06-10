@@ -1,9 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1 class="header">Sign Up</h1>
-<form method="post" action="{% url 'signup' %}" class="form-each">
+<form method="post" action="{% url 'signup' %}" class="login-form">
     {% csrf_token %} {{ form.as_p }}
-    <input type="submit" class="btn" value="Sign Up" />
+    <br />
+    <br />
+    <input type="submit" class="btn" value="Sign Up" class="input_signup" />
+    <br />
+    <br />
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
 <!-- <div class="Footer-form">
