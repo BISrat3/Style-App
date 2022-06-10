@@ -19,7 +19,7 @@
         <h4 class="h4_tag">Reviews</h3>
         <hr/>
         <div class="add_Rating">
-    <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk %}" method="post">
+    <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk user.id %}" method="post">
         {% csrf_token %}
         <div class="field has-addons">
             <div class="control">
@@ -36,6 +36,9 @@
     <div class="comments">
         <span class="span_background">{{forloop.counter}}.</span>
         <span class="span_background"> {{review.comment}}</span> <br/>
+        
+        {% if user.is_authenticated %}
+        {% if review.Reviewers_id == user.id%}
         <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
             <span class="icon icon_btn">
                 <i class="fas fa-edit"></i>
@@ -46,6 +49,8 @@
                 <i class="fas fa-trash-alt"></i>
             </span>
         </a>
+        {% endif %}
+        {% endif %}
     </div>
 </div>
 {% empty %}

@@ -84,6 +84,31 @@ class OxfordList(TemplateView):
         #     context["shirts"] = Products.objects.all()
         return context
 
+class PantList(TemplateView):
+    template_name = "pants_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        # if name != None:
+        context["pants"] = Products.objects.filter( category_id= 1, 
+            )
+        # else:
+        #     context["shirts"] = Products.objects.all()
+        return context
+
+class PantDetail(DetailView):
+    model = Products
+    template_name = "pants_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # id = self.request.GET.get("id")
+        context['reviews'] = Review.objects.filter(product=self.object)
+        context["pants"] = Products.objects.get(id__contains= context['products'].id )
+        return context
+
+        
 class ClassicList(TemplateView):
     template_name = "classic_shirt.html"
 
@@ -112,18 +137,6 @@ class DenimList(TemplateView):
         return context
 
 
-class PantList(TemplateView):
-    template_name = "pants_list.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        name = self.request.GET.get("name")
-        # if name != None:
-        context["pants"] = Products.objects.filter( category_id= 1, 
-            )
-        # else:
-        #     context["shirts"] = Products.objects.all()
-        return context
 
 class FlannelList(TemplateView):
     template_name = "flannel_shirt.html"
@@ -160,16 +173,6 @@ class OxfordDetail(DetailView):
         context["shirts"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
-class PantDetail(DetailView):
-    model = Products
-    template_name = "pants_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # id = self.request.GET.get("id")
-        context['reviews'] = Review.objects.filter(product=self.object)
-        context["pants"] = Products.objects.get(id__contains= context['products'].id )
-        return context
 
 class FlannelDetail(DetailView):
     model = Products
