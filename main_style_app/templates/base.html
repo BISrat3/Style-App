@@ -20,14 +20,12 @@
     <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">Home</a>
-          
             <a role="button" class="navbar-burger is-left" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a> 
         </div>
-       
         <div class="navbar-menu navbar-start">
             <a class="navbar-item" href="{% url 'product_list' %}">Shirts</a>
             <div class="navbar-item has-dropdown is-hoverable"> 
@@ -53,10 +51,6 @@
             </div>
            
         </div>
-        <div class="navbar-item header_style_div">
-          <strong><h1 class="header_style " >Men's Style Store</h1></strong>
-        </div>
-        
         {% if user.is_authenticated %}
         <div class="navbar-menu navbar-end">
 
@@ -74,6 +68,9 @@
         </div>
         {% endif %}
     </nav>
+    <div class="header_style_div">
+      <strong><h1 class="header_style " >Men's Style Store</h1></strong>
+    </div>
     <div class="container ">
 
         {% block content %}{% endblock %}
