@@ -9,7 +9,13 @@ body{
     /* min-height: 100vh; */
     margin: auto;
 }
+.carousel-inner{
+    margin-bottom: 40px;
+}
 
+.carousel{
+    background-color: aqua;
+}
 .h1_header{
     background-color: black;
     color:whitesmoke;

@@ -1,12 +1,13 @@
 from itertools import product
 from sre_constants import SUCCESS
 from unicodedata import category
+from urllib import request
 from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse, JsonResponse 
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Products, ShirtHome, Category, Review, User
+from .models import Products, ShirtHome, Category, Review, User, StoreSlide
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
@@ -30,8 +31,6 @@ class About(TemplateView):
 #         self.name = name
 #         self.image = image
 #         self.price = price
-
-
 class Store(TemplateView):
     template_name ="mens_cloth_home.html"
 
@@ -40,6 +39,21 @@ class Store(TemplateView):
         
         context["shirts"] = ShirtHome.objects.all()
         return context
+
+def StoreSlide(request):
+    
+    slides = StoreSlide.objects.all()
+    context = {
+            'slides': slides
+        }
+    return render(request, 'mens_cloth_home.html', context)
+    # template_name ="mens_cloth_home.html"
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+        
+    #     context["slides"] = StoreSlide.objects.all()
+    #     return context
 
 @method_decorator(login_required, name='dispatch')
 class ProductsList(TemplateView):
