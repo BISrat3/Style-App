@@ -99,6 +99,11 @@ h3 {
 
 }
 
+.textAreaInput{
+    width: 250px;
+    height: 40px;
+    font-size: 15px;
+}
 .input_signup{
     margin-left: 500px;
     
@@ -193,22 +198,28 @@ p {
 
 .detail__reviews {
     max-width: 80%;
-    margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: -30px;
 }
+
 .comments{
     text-align: left;
     margin-left: 30px;
 }
+
 .detail_description{
-    margin-left: 50px;
+    margin-left: 30px;
     margin-right: 50px;
     margin-bottom: -10px;
 }
+
+hr{
+    background-color:grey;
+}
+
 .h4_tag{
-    margin-top: 40px;
+    margin-top: 30px;
     text-align: left;
-    margin-left: 40px;
+    margin-left: 30px;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -241,9 +252,6 @@ p {
     
 }
 
-hr {
-    background-color: black;
-}
 .filter_list{
     margin-top: 20px;
 }

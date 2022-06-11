@@ -1,18 +1,31 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1 class="header"> Classic {{shirts.name}}</h1>
+<h1 class="header">{{shirts.name}} Shirt</h1>
 <br />
-<div class="detail_list">
+<div class="detail_list ">
     <div class="image_detail">
-        <span><b>{{shirts.name}}</b></span>
-        <img src="{{shirts.img}}" alt="{{shirt.name}}" />
+        <img src="{{shirts.img}}" alt="{{shirt.name}}" /></i> 
     </div>
-    <div class="detail_description">
+    <div class="detail_page">
+        <span><strong>Price: ${{shirts.price}}</strong> </span>
         <br />
-        <span><strong>Description: </strong><br/> {{shirts.description}}</span>
         <br />
-        <span><strong>Price:</strong> ${{shirts.price}}</span>
-      </div>    
+        <span><strong>Color:
+        </strong>
+        </span>
+        <br />
+        <br />
+        <span><strong>Size:
+        </strong>
+        </span>
+    </div>
+</div>
+<div class="detail_description">
+    <br />
+    <span><strong>Description: </strong><br/> {{shirts.description}}</span>
+    <br />
+    <br />
+</div>
       <div class="detail__reviews mb-5"> 
         <h4 class="h4_tag">Reviews</h3>
         <hr/>
@@ -24,8 +37,9 @@
                     <input class="button is-primary" type="submit" value="Add Reviews" />
                 </div>
                 <div class="control">
-                    <textarea class="input" type="text" name="comment" placeholder="review" required
+                    <textarea class="textAreaInput" type="text" name="comment" placeholder="comment" required
                     ></textarea>
+
                 </div>
             </div>
         </form>
