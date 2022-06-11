@@ -237,13 +237,13 @@ class ReveiwCreate(View):
             # success_url = f'products/oxfordshirt/{prod.cat_id}/'
             # return redirect (f'products/oxfordshirt/{prod.cat_id}/')
         
-@method_decorator(login_required, name='dispatch')
 class ReviewUpdate(UpdateView):
     model = Review
     fields = ['comment']
     template_name = "comment_update.html"
-    def get_success_url(self):
-        return reverse('oxford_shirt')
+    success_url = '/products'
+    # def get_success_url(self):
+    #     return reverse('shirt_detail', kwargs={'pk': self.object.pk})
 
 class ReviewDelete(DeleteView):
     model = Review

@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="header">Update {{shirt.name}}</h1>
+<span class="navbar-item welcome">Welcome: {{user.username}}</span>
+<br>
+<br>
+
+<h1 class="header">Update your Comment {{shirts.name}}</h1>
 <div>
 <form action="" method="post" class="Create_form">
-  {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit" />
+  {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit"  />
 </form>
 <div class="container2">
 
