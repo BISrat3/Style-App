@@ -1,64 +1,76 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1 class="header">{{shirts.name}}</h1>
-
+<h1 class="header">{{shirts.name}} Shirt</h1>
 <br />
-<div class="detail_list">
+<div class="detail_list ">
     <div class="image_detail">
-        <span><b>{{shirts.name}}</b></span>
-        <img src="{{shirts.img}}" alt="{{shirt.name}}" />
+        <img src="{{shirts.img}}" alt="{{shirt.name}}" /></i> 
     </div>
-
-    <div class="detail_description">
+    <div class="detail_page">
+        <span><strong>Price: ${{shirts.price}}</strong> </span>
         <br />
-        <span><strong>Description: </strong><br/> {{shirts.description}}</span>
         <br />
-        <span><strong>Price:</strong> ${{shirts.price}}</span>
+        <span><strong>Color:
+        </strong>
+        </span>
+        <br />
+        <br />
+        <span><strong>Size:
+        </strong>
+        </span>
     </div>
-    <div class="detail__reviews mb-5"> 
+</div>
+<div class="detail_description">
+    <br />
+    <span><strong>Description: </strong><br/> {{shirts.description}}</span>
+    <br />
+    <br />
+</div>
+      <div class="detail__reviews mb-5"> 
         <h4 class="h4_tag">Reviews</h3>
         <hr/>
+
         <div class="add_Rating">
-    <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk user.id %}" method="post">
-        {% csrf_token %}
-        <div class="field has-addons">
-            <div class="control">
-                <input class="button is-primary" type="submit" value="Add Reviews" />
-            </div>
-            <div class="control">
-                <textarea class="input" type="text" name="comment" placeholder="review" required
-                ></textarea>
-            </div>
+            <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk user.id %}" method="post">
+                {% csrf_token %}
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="button is-primary" type="submit" value="Review" />
+                    </div>
+                    <div class="control">
+                        <textarea class="textAreaInput" type="text" name="comment" placeholder="comment" required
+                        ></textarea>
+
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-    {% for review in reviews %}
-    <div class="comments">
-        <span class="span_background">{{forloop.counter}}.</span>
-        <span class="span_background"> {{review.comment}}</span> <br/>
-        
-        {% if user.is_authenticated %}
-        {% if review.Reviewers_id == user.id%}
-        <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
-            <span class="icon icon_btn">
-                <i class="fas fa-edit"></i>
+        {% for review in reviews %}
+        <div class="comments">
+            <span class="span_background">{{forloop.counter}}.</span>
+            <span class="span_background"> {{review.comment}}</span>
+            <br />
+            <span class="createdate"> {{review.date}}</span> <br/>
+            {% if user.is_authenticated %}
+            {% if review.Reviewers_id == user.id%}
+            <a href="{% url 'comment_update' review.pk %}" class="">
+                <span class="deletemsg">
+                    <i class="fas fa-edit"></i>
+                    <i class="fa-solid fa-comment-pen"></i>
+                </span>
+            </a>
+            <a href="{% url 'comment_delete' review.pk %}" class="x ">
+                <span class="deletemsg">
+                <i class="fa-solid fa-trash deletemsg"></i>
             </span>
-        </a>
-        <a href="{% url 'comment_delete' review.pk %}" class="button is-danger span_btn">
-            <span class="icon ">
-                <i class="fas fa-trash-alt"></i>
-            </span>
-        </a>
-        {% endif %}
-        {% endif %}
+            </a>
+            {% endif %}
+            {% endif %}
+        </div>
+        {% empty %}
+        <span >No comments</span>
+        {% endfor %}
     </div>
+    </div>  
 </div>
-{% empty %}
-<span >No comments</span>
-{% endfor %}
-</div>
-
-</div>
-
-
 {% endblock %}
