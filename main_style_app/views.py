@@ -37,6 +37,7 @@ class Store(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
         context["shirts"] = ShirtHome.objects.all()
         return context
 
@@ -58,17 +59,6 @@ class ProductsList(TemplateView):
 
 class CategoryList(TemplateView):
     template_name = "categories_list.html"
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     name = self.request.GET.get("name")
-        
-    #     if name != None:
-    #         context["shirts"] = Category.filter(
-    #             name__icontains=name, user=self.request.user)
-    #     else:
-    #         context["shirts"] = Category.objects.all()
-    #     return context
 
 
 class ShirtList(TemplateView):

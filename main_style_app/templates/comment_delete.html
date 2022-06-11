@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <h1 class="header pt-5">Are you sure you want to Delete {{shirt.name}}?</h1>
+<div>
 <form method="post">
     {% csrf_token %}
     <div class="buttons">
@@ -7,7 +8,8 @@
         <a class="button is-primary" href="{% url 'product_detail' review.pk %}">Cancel</a>
     </div>
 </form>
-<div class="Footer-form">
-    <h6 class="hidden">footer</h6>
+<div class="container2">
+
+</div>
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1 class="header">Log In</h1>
+<div>
 <form method="post" action="{% url 'login' %}" class="login-form">
     {% csrf_token %} {{ form.as_p }}
     <input type="submit" class="btn" value="login" />
@@ -8,6 +9,11 @@
     <input type="hidden" name="next" value="{{ next }}" />
     <br/>
 </form>
+
+<div class="container2">
+
+</div>
+</div>
 <br/>
 <!-- <div class="Footer-form">
     <h6 class="hidden">footer</h6>

@@ -30,9 +30,9 @@ h3 {
 .container{
     margin-bottom: 79vh;
 } */
-/* .container2{
+.container2{
     height: 79vh;
-} */
+}
 .container1{
     position: relative;
     bottom: 0px;
@@ -166,6 +166,10 @@ p {
 .list_card{
     display: flex;
     flex-direction: column;;
+}
+.cart_icon{
+    color:white;
+    size: 20px;
 }
 
 /* .image_product{

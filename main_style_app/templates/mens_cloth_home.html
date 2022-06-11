@@ -3,7 +3,55 @@
 
 {% block content %}
 
+
 <h1 class="header pt-5">Styles </h1>
+<!-- 
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div class="carousel-indicators d-none d-md-block">
+    <ol>
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1" ></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2" ></li>
+    </ol>
+
+
+    <div class="carousel-inner">
+        {% for shirt in shirts %}
+        <div class="carousel-inner active {% if forloop.counter0 == 0 %} active {% endif %}">
+            <img src= "{{shirt.img}}" style="height:  300px; align-items: center;" class="Image-store"  alt="{{shirt.name}}"/>
+            <div class="carousel-caption d-none d-md-block">
+                
+                <h1 class=" animate__animated aniamte__fadeInDown header pt-5">First Slide </h1>
+                <h1 class="animate__animated aniamte__fadeInDown h header pt-5">First Slide </h1>
+                <button class="animate_animated aniamte_zoomIn mt-3 p-4 px-5 btn font-weight-bold">About
+                    
+                </button>
+            </div>
+        </div> 
+        {% endfor %}
+</div>
+</div> 
+<img src="{{shirt.img}}" style="height:  300px;" class="Image-store"  alt="{{shirt.name}}"/>
+<div class="carousel-caption d-none d-md-block">
+    
+<h1 class=" animate__animated aniamte__fadeInDown header pt-5">First Slide </h1>
+<h1 class="animate__animated aniamte__fadeInDown h header pt-5">First Slide </h1>
+<button class="animate_animated aniamte_zoomIn mt-3 p-4 px-5 btn font-weight-bold">About
+
+</button>
+</div>
+</div> 
+<img src="{{shirt.img}}" style="height:  300px;" class="Image-store"  alt="{{shirt.name}}"/>
+<div class="carousel-caption d-none d-md-block">
+    
+<h1 class=" animate__animated aniamte__fadeInDown header pt-5">First Slide </h1>
+<h1 class="animate__animated aniamte__fadeInDown h header pt-5">First Slide </h1>
+<button class="animate_animated aniamte_zoomIn mt-3 p-4 px-5 btn font-weight-bold">About
+
+</button>
+</div>
+</div>  -->
+
 <div class="gallery">
     {% for shirt in shirts %}
     <a href="{% url 'login' %}">
