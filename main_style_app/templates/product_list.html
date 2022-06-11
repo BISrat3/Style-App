@@ -1,18 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
-<span class="navbar-item welcome">Welcome: {{user.username}}</span>
-<h1 class="header pt-5">Products </h1>
+<span class="navbar-item welcome ">Welcome: {{user.username}}</span>
+<h1 class="header pt-5"> </h1>
 
 <form class="mb-5" method="get">
   <div class="field has-addons align">
     <div class="control">
-      <input class="input searchInput" type="text" name="name" placeholder="product name" />
+      <input class="input searchInput" type="text" name="name" placeholder="Please search your item here" />
     </div>
     <div class="control">
       <input class="button is-success" type="submit" value="Search" />
     </div>
   </div>
-  <!--  This anchor tag will redirect back to artist list without a query param -->
   <a class="button is-dark" href="{% url 'product_list' %}">Clear Search</a>
 </form>
 <div class="products_list">
@@ -60,53 +59,36 @@
         </div>
       </div>
       <div class="filter-price p-t-22 p-b-50 bo3">
-        <!-- <div class="m-text15 p-b-17">
-          Price
-      </div> -->
-      <!-- <div class="wra-filter-bar">
-       <div id="filter-bar"></div>
-      </div> -->
-      <!-- <div class="flex-sb-m flex-w p-t-16">
-        <div class="w-size11">
-          <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
-            <h3 class="h3_categories "><strong>Filter</strong></h3>
-          </button>
-        </div> 
-      </div> -->
       <div>
-        <!-- Price: $ <span class="price_range">10</span>
-        - $ <span class="upto_range">600</span>--->
        </div>
     </div>
   </div>
 </div>
-  <div class="product_galary">
+  <div class="gallery-product ">
     {% for shirt in shirts %}
-    <a href="{% url 'product_detail' shirt.pk %}">
-      <div class="product_card">
-        <div class="div-product-image">
-          <figure class="image is-square ">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
-          </figure>
-        </div>
-        <div class="card-header">
-          <div class="card-header-title">
-            <p >{{shirt.name}}</p> 
-          </div>
-          <div class="product-price">
-            <p >${{shirt.price}}</p>
-            
-          </div>
-        </div>
+    <div class="card-product">
+      <div class="div-product-image">
+        <figure class="image is-square ">
+          <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
+        </figure>
       </div>
-  <!-- <div class="card-header">
-  </div> -->
-  <!-- <div>
-    <p class="card-product-review">{{product.review}</p>
-  </div> -->
-  <!-- </a> -->
-  {% endfor %}
-</div>
+      <a href="{% url 'product_detail' shirt.pk %}">
+        <div class="card-header-price">
+          <p class="card-header-title">
+            <strong>
+              {{shirt.name}}
+          </strong></p>
+          <p class="card-header-title">
+            <strong >${{shirt.price}}.00</strong>
+          </p>
+          <p class="ViewProduct"><strong>
+            View All
+        </strong></p>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
