@@ -5,32 +5,35 @@
 {% block content %}
 
 <h1 class="header pt-5">Pants </h1>
-<div class="product_galary ">
+<div class="gallery ">
     {% for pant in pants %}
-    <a href="{% url 'pants_detail' pant.pk %}">
-      <div class="product_card">
-        <div class="div-product-image">
-          <figure class="image is-square ">
-            <img src="{{pant.img}}" alt="{{pant.name}}" class="image_product"/>
-          </figure>
-        </div>
-        <div class="card-header">
-          <div class="card-header-title">
-            <p >{{pant.name}}</p> 
-          </div>
-          <div class="product-price">
-            <p >${{pant.price}}</p>
-          </div>
-          
-        </div>
+    <div class="card">
+      <div class="div-product-image">
+        <figure class="image is-square ">
+          <img src="{{pant.img}}" alt="{{pant.name}}" class="image_product"/>
+        </figure>
       </div>
-  <!-- <div class="card-header">
-  </div> -->
-  <!-- <div>
-    <p class="card-product-review">{{product.review}</p>
-  </div> -->
-  <!-- </a> -->
-  {% endfor %}
-</div>
-</div>
-{% endblock %}
+      <a href="{% url 'pants_detail' pant.pk %}">
+        <div class="card-header-price">
+          <p class="card-header-title"><strong>
+              {{pant.name}}
+          </strong></p>
+              <p class="card-header-title"><strong>
+                  $ {{pant.price}}.00
+              </strong></p>
+              <p class="ViewAll"><strong>
+                  View All
+              </strong></p>
+          </div>
+      </a>
+          
+      </div>
+      {% empty %}
+      <article class="message">
+      <div class="message-header">
+          <p>No pant Available</p>
+      </div>
+      </article>
+      {% endfor %}
+  </div>
+  {% endblock %}

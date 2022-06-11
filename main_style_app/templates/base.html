@@ -31,7 +31,7 @@
        
         <div class="navbar-menu navbar-start">
             <a class="navbar-item" href="{% url 'product_list' %}">Shirts</a>
-            <!-- <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-item has-dropdown is-hoverable">
               
               <a class="navbar-link">
                 Category
@@ -53,7 +53,7 @@
                   Version 0.9.4
                 </div>
               </div>
-            </div> -->
+            </div>
            
         </div>
         <div class="navbar-item header_style_div">
@@ -62,35 +62,13 @@
         
         {% if user.is_authenticated %}
         <div class="navbar-menu navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable">
-              
-            <a class="navbar-link">
-              Category
-            </a>
-        
-            <div class="navbar-dropdown">
-              <a class="navbar-item" href="{% url 'shorts_list' %}">Shorts
-              </a>
-              <a class="navbar-item"href="{% url 'shoes_list' %}">Shoes
-              </a>
-              <a class="navbar-item"href="{% url 'shirt_list' %}">Shirts
-              </a>
-              <a class="navbar-item" href="{% url 'pants_list' %}">Pants
-              </a>
-              <a class="navbar-item" href="{% url 'watches_list' %}">Watches
-              </a>
-              <hr class="navbar-divider">
-              <div class="navbar-item">
-                Version 0.9.4
-              </div>
-            </div>
-          </div>
-          <a class="navbar-item" href="/">Shorts</a>
-          <a class="navbar-item cart_icon" href="/">
 
+          <a class="navbar-item" href="/"><i class="fa-solid fa-user"></i></a>
+          <a class="navbar-item cart_icon" href="/">
             <i class="fa-solid fa-cart-plus"></i>
           </a>
           <a class="navbar-item " href="{% url 'logout' %}">Logout</a>
+
         </div>
         {% else %}
          <div class="navbar-menu navbar-end">

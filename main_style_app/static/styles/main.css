@@ -110,6 +110,7 @@ h3 {
     justify-content: center;
     gap: 30px;
     margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 .gallery .card {
@@ -149,6 +150,7 @@ p {
     flex-wrap: wrap;
     justify-content:center;
     gap: 10px;
+    margin-bottom: 40px;
 }
 
 
@@ -225,6 +227,7 @@ p {
     z-index: 10;
 }
 
+
 /* .product-price{
     padding: 0.1rem 1rem;
 
@@ -260,18 +263,45 @@ button{
     height:30px;
     margin-top: 10px;
 }
-
+.detail_list{
+    display: flex;
+}
 .image_detail{
-    margin-left: 50px;
-    max-width: 40%;
+    justify-content: left;
+    flex-direction: wrap;
+    margin-left: 30px;
 }
 
+.detail_page{
+    flex-direction: wrap;
+    justify-content: right;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .card-header-price{
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
+.card-header-title{
+    padding: 0.15rem 0.5rem;
+    font-weight: 400;
+
+}
+
+.fa-solid{
+    padding-right: -200px;
+}
+.ViewAll{
+    margin-top: -20px;
+    margin-left: 200px;
+}
+
+.ViewAll :hover{
+    transform: scale(3.1);
+    color: blue;
+}
 /* .footer{
     background-color:yellowgreen;
     padding-top:1rem;

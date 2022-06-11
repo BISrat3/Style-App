@@ -4,33 +4,35 @@
 
 {% block content %}
 
-<h1 class="header pt-5">Classic Styles </h1>
-<div class="product_galary">
+<h1 class="header pt-5">Shorts</h1>
+<div class="gallery">
     {% for shirt in shirts %}
-    <a href="{% url 'shorts_detail' shirt.pk %}">
-      <div class="product_card">
-        <div class="div-product-image">
-          <figure class="image is-square ">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
-          </figure>
-        </div>
-        <div class="card-header">
-          <div class="card-header-title">
-            <p >{{shirt.name}}</p> 
-          </div>
-          <div class="product-price">
-            <p >${{shirt.price}}</p>
-          </div>
-          
-        </div>
+    <div class="card">
+      <div class="div-product-image">
+        <figure class="image is-square ">
+          <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
+        </figure>
       </div>
-  <!-- <div class="card-header">
-  </div> -->
-  <!-- <div>
-    <p class="card-product-review">{{product.review}</p>
-  </div> -->
-  <!-- </a> -->
-  {% endfor %}
-</div>
-</div>
-{% endblock %}
+      <a href="{% url 'shorts_detail' shirt.pk %}">
+      <div class="card-header-price">
+          <p class="card-header-title"><strong>
+              {{shirt.name}}
+          </strong></p>
+              <p class="card-header-title"><strong>
+                  $ {{shirt.price}}.00
+              </strong></p>
+              <p class="ViewAll"><strong>
+                  View All
+              </strong></p>
+          </div>
+      </a>
+      </div>
+      {% empty %}
+      <article class="message">
+      <div class="message-header">
+          <p>No Shirts Available</p>
+      </div>
+      </article>
+      {% endfor %}
+  </div>
+  {% endblock %}

@@ -74,7 +74,7 @@ class ProductsList(TemplateView):
 class CategoryList(TemplateView):
     template_name = "categories_list.html"
 
-
+@method_decorator(login_required, name='dispatch')
 class ShirtList(TemplateView):
     template_name = "shirt_list.html"
 
@@ -88,6 +88,7 @@ class ShirtList(TemplateView):
         #     context["shirts"] = Products.objects.all()
         return context
 
+@method_decorator(login_required, name='dispatch')
 class PantList(TemplateView):
     template_name = "pants_list.html"
 
@@ -112,7 +113,7 @@ class PantDetail(DetailView):
         context["pants"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
-        
+@method_decorator(login_required, name='dispatch')      
 class ShortsList(TemplateView):
     template_name = "shorts_list.html"
 
@@ -126,7 +127,7 @@ class ShortsList(TemplateView):
         #     context["shirts"] = Products.objects.all()
         return context
 
-
+@method_decorator(login_required, name='dispatch')
 class ShoesList(TemplateView):
     template_name = "shoes_list.html"
 
@@ -141,7 +142,7 @@ class ShoesList(TemplateView):
         return context
 
 
-
+@method_decorator(login_required, name='dispatch')
 class WatchesList(TemplateView):
     template_name = "watches_list.html"
 

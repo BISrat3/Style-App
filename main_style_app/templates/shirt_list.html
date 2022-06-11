@@ -4,24 +4,32 @@
 
 {% block content %}
 
-<h1 class="header pt-5">Shirt Styles </h1>
-<div class="product_galary">
+<h1 class="header pt-5">Shirts </h1>
+<div class="gallery">
     {% for shirt in shirts %}
-    <a href="{% url 'shirt_detail' shirt.pk  %}">
-    <div class="product_card">
+    
+    <div class="card">
         <div class="div-product-image">
-        <figure class="image is-square">
-            <img src="{{shirt.img}}" alt="{{shirt.name}}" />
-        </figure>
+            <figure class="image is-square">
+                
+                <img src="{{shirt.img}}" alt="{{shirt.name}}" />
+            </figure>
         </div>
-        <div class="card-header">
-        <p class="card-header-title">{{shirt.name}}</p>
+        <a href="{% url 'shirt_detail' shirt.pk  %}">
         <div class="card-header-price">
-            <p >${{shirt.price}}</p>
-          </div>
+        <p class="card-header-title"><strong>
+            {{shirt.name}}
+        </strong></p>
+            <p class="card-header-title"><strong>
+                $ {{shirt.price}}.00
+            </strong></p>
+            <p class="ViewAll"><strong>
+                View All
+            </strong></p>
         </div>
-    </div>
     </a>
+        
+    </div>
     {% empty %}
     <article class="message">
     <div class="message-header">
