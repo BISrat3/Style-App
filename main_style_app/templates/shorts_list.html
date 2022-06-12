@@ -1,7 +1,4 @@
 {% extends 'base.html' %}
-{% comment %} for head title tags and helping us with SEO {% endcomment %}
-{% block title %}Shirts{% endblock  %}
-
 {% block content %}
 
 <h1 class="header pt-5">Shorts</h1>
@@ -13,7 +10,7 @@
           <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
         </figure>
       </div>
-      <a href="{% url 'classic_detail' shirt.pk %}">
+      <a href="{% url 'shorts_detail' shirt.pk %}">
       <div class="card-header-price">
           <p class="card-header-title"><strong>
               {{shirt.name}}

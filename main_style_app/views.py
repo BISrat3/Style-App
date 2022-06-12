@@ -115,7 +115,7 @@ class PantDetail(DetailView):
 
 @method_decorator(login_required, name='dispatch')      
 class ShortsList(TemplateView):
-    template_name = "classic_shirt.html"
+    template_name = "shorts_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -198,12 +198,12 @@ class ShoesDetail(DetailView):
         context = super().get_context_data(**kwargs)
         # id = self.request.GET.get("id")
         context['reviews'] = Review.objects.filter(product=self.object)
-        context["shirts"] = Products.objects.get(id__contains= context['products'].id )
+        context["Shoes"] = Products.objects.get(id__contains= context['products'].id )
         return context
 
 class ShortsDetail(DetailView):
     model = Products
-    template_name = "classic_detail.html"
+    template_name = "shorts_detail.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -26,50 +26,47 @@
     <br />
     <br />
 </div>
-      <div class="detail__reviews mb-5"> 
-        <h4 class="h4_tag">Reviews</h3>
-        <hr/>
-
-      <div class="add_Rating">
-        <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk user.id%}" method="post">
+<div class="detail__reviews mb-5"> 
+    <h4 class="h4_tag">Reviews</h3>
+    <hr/>
+    <div class="add_Rating">
+        <form class="mb-5 detail_form" action="{% url 'create_comment' products.pk user.id %}" method="post">
             {% csrf_token %}
             <div class="field has-addons">
                 <div class="control">
                     <input class="button is-primary" type="submit" value="Review" />
                 </div>
                 <div class="control">
-                    <textarea class="textAreaInput" type="text" name="comment" placeholder="comment" required
+                    <textarea class="textAreaInput" type="text" name="comment" placeholder="  Comment" required
                     ></textarea>
                 </div>
             </div>
         </form>
     </div>
-        {% for review in reviews %}
-        <div class="comments">
-            <span class="span_background">{{forloop.counter}}.</span>
-            <span class="span_background"> {{review.comment}}</span> <br/>
-            <br />
-            <span class="createdate"> {{review.date}}</span> <br/>
-            <br />
-            {% if user.is_authenticated %}
-            {% if review.Reviewers_id == user.id%}
-            <a href="{% url 'comment_update' review.pk %}" class="button is-danger span_btn">
-                <span class="icon icon_btn">
-                    <i class="fas fa-edit"></i>
-                </span>
-            </a>
-            <a href="{% url 'comment_delete' review.pk %}" class="button is-danger span_btn">
-                <span class="icon ">
-                    <i class="fas fa-trash-alt"></i>
-                </span>
-            </a>
-            {% endif %}
-            {% endif %}
-        </div>
+    {% for review in reviews %}
+    <div class="comments">
+        <span class="span_background">{{forloop.counter}}.</span>
+        <span class="span_background"> {{review.comment}}</span>
+        <br />
+        <span class="createdate"> {{review.date}}</span> <br/>
+        {% if user.is_authenticated %}
+        {% if review.Reviewers_id == user.id%}
+        <a href="{% url 'comment_update' review.pk %}" class="">
+            <span class="deletemsg">
+                <i class="fas fa-edit"></i>
+                <i class="fa-solid fa-comment-pen"></i>
+            </span>
+        </a>
+        <a href="{% url 'comment_delete' review.pk %}" class="x ">
+            <span class="deletemsg">
+            <i class="fa-solid fa-trash deletemsg"></i>
+        </span>
+        </a>
+        {% endif %}
+        {% endif %}
+    </div>
     {% empty %}
     <span >No comments</span>
     {% endfor %}
-    </div>
-</div>
 </div>
 {% endblock %}
