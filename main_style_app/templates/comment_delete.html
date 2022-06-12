@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="header pt-5">Are you sure you want to Delete {{shirt.name}}?</h1>
+<h1 class="header pt-5">Are you sure you want to Delete your comment? </h1>
 <div>
 <form method="post">
     {% csrf_token %}
     <div class="buttons">
-        <input class="button is-danger" type="submit" value="Confirm" />
+        <input class="button is-danger delete-comment" type="submit" value="Confirm" />
         <a class="button is-primary" href="{% url 'product_detail' review.pk %}">Cancel</a>
     </div>
 </form>

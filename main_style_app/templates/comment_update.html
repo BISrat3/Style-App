@@ -3,10 +3,11 @@
 <br>
 <br>
 
-<h1 class="header">Update your Comment {{shirts.name}}</h1>
+<h1 class="header">Update Comments</h1>
 <div>
-<form action="" method="post" class="Create_form">
-  {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit"  />
+<form action="" method="post" class="Create_form update-form">
+  {% csrf_token %} {{form.as_p}} 
+  <input type="submit" value="Update Comment"  class="updateComment button is-danger"/>
 </form>
 <div class="container2">
 
