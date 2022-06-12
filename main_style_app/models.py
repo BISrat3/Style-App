@@ -19,7 +19,6 @@ class ShirtHome(models.Model):
 
     user = models.ForeignKey(User, on_delete = models.CASCADE, default=1)
     def __str__(self):
-        # return HttpResponse("Product Home")
         return self.name
     class Meta:
         ordering =['name']

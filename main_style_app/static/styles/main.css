@@ -25,6 +25,7 @@ body{
     font-size: 30px;
     color: aquamarine;
     margin-bottom: -20px;
+    width: 200px;
 }
 h1,
 h2,
@@ -41,6 +42,10 @@ h3 {
 .container1{
     position: relative;
     bottom: 0px;
+}
+
+.navbar-item :hover{
+    background-color: lightgrey;
 }
 .header_style{
     text-align: center;
@@ -112,7 +117,7 @@ h3 {
 
 
 .price_filter{
-    background-color: lightgrey;
+    background-color:lightgray;
 
 }
 
@@ -164,7 +169,6 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
     gap: 10px;
     margin-left: 30px;
     margin-bottom: 30px;

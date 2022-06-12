@@ -18,25 +18,15 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-# from rest_framework import generics
 
 class About(TemplateView):
-    # selected=Products.objects.filter(is_featured=True).order_by('category_id')
     template_name = "about.html"
-    # def get(self, request):
-    #     return HttpResponse("Product About")
 
-# class Shirt_Home:
-#     def __init__(self, name, image, price):
-#         self.name = name
-#         self.image = image
-#         self.price = price
 class Store(TemplateView):
     template_name ="mens_cloth_home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
         context["shirts"] = ShirtHome.objects.all()
         return context
 
@@ -47,13 +37,6 @@ def StoreSlide(request):
             'slides': slides
         }
     return render(request, 'mens_cloth_home.html', context)
-    # template_name ="mens_cloth_home.html"
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-        
-    #     context["slides"] = StoreSlide.objects.all()
-    #     return context
 
 @method_decorator(login_required, name='dispatch')
 class ProductsList(TemplateView):
@@ -84,8 +67,6 @@ class ShirtList(TemplateView):
         # if name != None:
         context["shirts"] = Products.objects.filter( category_id= 5, 
             )
-        # else:
-        #     context["shirts"] = Products.objects.all()
         return context
 
 @method_decorator(login_required, name='dispatch')
@@ -98,8 +79,6 @@ class PantList(TemplateView):
         # if name != None:
         context["pants"] = Products.objects.filter( category_id= 1, 
             )
-        # else:
-        #     context["shirts"] = Products.objects.all()
         return context
 
 class PantDetail(DetailView):
@@ -123,8 +102,6 @@ class ShortsList(TemplateView):
         # if name != None:
         context["shirts"] = Products.objects.filter( category_id= 3, 
             )
-        # else:
-        #     context["shirts"] = Products.objects.all()
         return context
 
 @method_decorator(login_required, name='dispatch')
@@ -137,8 +114,6 @@ class ShoesList(TemplateView):
         # if name != None:
         context["Shoes"] = Products.objects.filter(category_id= 2, 
             )
-        # else:
-        #     context["shirts"] = Products.objects.all()
         return context
 
 
@@ -152,8 +127,6 @@ class WatchesList(TemplateView):
         # if name != None:
         context["shirts"] = Products.objects.filter( category_id= 4, 
             )
-        # else:
-        #     context["shirts"] = Products.objects.all()
         return context
 
 class ProductDetail(DetailView):
@@ -228,14 +201,6 @@ class Signup(View):
             return render(request, "registration/signup.html", context)
 
 
-# def filter_price(request):
-#     minimumPrice = request.GET['minimumPrice']
-#     maximumPrice = request.GET['maximumPrice']
-#     allProducts = Products.objects.all().order_by('price').distinct()
-#     allProducts = allProducts.filter(products__price__=minimumPrice)
-#     allProducts = allProducts.filter(products__price__=maximumPrice)
-
-
 @method_decorator(login_required, name='dispatch')
 class ReveiwCreate(View):
     def post(self, request, pk, user_id):
@@ -246,19 +211,12 @@ class ReveiwCreate(View):
         print(reviewerUser)
         Review.objects.create(comment=comment, product = product, Reviewers=reviewerUser)
         return redirect('shirt_detail', pk=pk)
-        # prod = Review.objects.get(pk = pk)
-        # print(prod.cat_id)
-        # if Category.cat_id == 5:  
-            # success_url = f'products/oxfordshirt/{prod.cat_id}/'
-            # return redirect (f'products/oxfordshirt/{prod.cat_id}/')
         
 class ReviewUpdate(UpdateView):
     model = Review
     fields = ['comment']
     template_name = "comment_update.html"
     success_url = '/products'
-    # def get_success_url(self):
-    #     return reverse('shirt_detail', kwargs={'pk': self.object.pk})
 
 class ReviewDelete(DeleteView):
     model = Review

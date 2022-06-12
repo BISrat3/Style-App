@@ -1,12 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
-<span class="navbar-item welcome ">Welcome: {{user.username}}</span>
-<h1 class="header pt-5"> </h1>
+<span class="navbar-item welcome">Welcome: {{user.username}}</span>
+<h1 class="header pt-5"></h1>
 
 <form class="mb-5" method="get">
   <div class="field has-addons align">
     <div class="control">
-      <input class="input searchInput" type="text" name="name" placeholder="Please search your item here" />
+      <input
+        class="input searchInput"
+        type="text"
+        name="name"
+        placeholder="Please search your item here"
+      />
     </div>
     <div class="control">
       <input class="button is-success" type="submit" value="Search" />
@@ -17,27 +22,30 @@
 <div class="products_list">
   <div class="categories">
     <div class="categories_list">
-         <input  class="h3_categories newlabel" type="Categories" placeholder="Categories"disabled>
-         <hr class="navbar-divider">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'shorts_list' %}">Shorts
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'shoes_list' %}">Shoes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'shirt_list' %}">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pants_list' %}">Pants</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'watches_list' %}">Watches</a>
-          </li>
-        </ul>
+      <input
+        class="h3_categories newlabel"
+        type="Categories"
+        placeholder="Categories"
+        disabled
+      />
+      <hr class="navbar-divider" />
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shorts_list' %}">Shorts </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shoes_list' %}">Shoes </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shirt_list' %}">Shirts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pants_list' %}">Pants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'watches_list' %}">Watches</a>
+        </li>
+      </ul>
     </div>
     <div class="filter_list flex-sb-m flex-w p-t-16">
       <div class="w-size11">
@@ -47,46 +55,52 @@
       <div class="card mb-4 price_filter">
         <h5 class="h3_categories">Price</h5>
         <div class="list-group list-group-flush">
-          <p class="list-group-item"> 
-            <input type="range" id="rangeInput" min="0" max="700" value="{{minMaxPrice.price}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} oninput="maxPrice.value=this.value"/>
-            <!-- min="0" max="700"  -->
-          </p><br />
-            <!-- <p>{{minMaxPrice.price__min}}-{{minMaxPrice.price__max}}</p> -->
           <p class="list-group-item">
-            Range: <input type="number" value="{{minMaxPrice.price}}" max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control" onkeyup="rangeInput.value= this.value" id="maxPrice" min="0" max="700" />
+            <input
+              type="range"
+              id="rangeInput"
+              min="0"
+              max="700"
+              oninput="maxPrice.value=this.value"
+            />
+          </p>
+          <br />
+          <p class="list-group-item">
+            Range:
+            <input
+              type="number"
+              class="form-control"
+              onkeyup="rangeInput.value= this.value"
+              id="maxPrice"
+              min="0"
+              max="700"
+            />
           </p>
         </div>
       </div>
-      <div class="filter-price p-t-22 p-b-50 bo3">
-      <div>
-       </div>
     </div>
   </div>
-</div>
-  <div class="gallery-product ">
+  <div class="gallery-product">
     {% for shirt in shirts %}
     <div class="card-product">
       <div class="div-product-image">
-        <figure class="image is-square ">
-          <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product"/>
+        <figure class="image is-square">
+          <img src="{{shirt.img}}" alt="{{shirt.name}}" class="image_product" />
         </figure>
       </div>
       <a href="{% url 'product_detail' shirt.pk %}">
         <div class="card-header-price">
           <p class="card-header-title">
-            <strong>
-              {{shirt.name}}
-          </strong></p>
-          <p class="card-header-title">
-            <strong >${{shirt.price}}.00</strong>
+            <strong> {{shirt.name}} </strong>
           </p>
-          <p class="ViewProduct"><strong>
-            View All
-        </strong></p>
+          <p class="card-header-title">
+            <strong>${{shirt.price}}.00</strong>
+          </p>
+          <p class="ViewProduct"><strong> View All </strong></p>
         </div>
-        </a>
-      </div>
-      {% endfor %}
+      </a>
+    </div>
+    {% endfor %}
     </div>
 </div>
 
