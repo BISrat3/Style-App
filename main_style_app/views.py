@@ -135,7 +135,7 @@ class ShoesList(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         # if name != None:
-        context["shirts"] = Products.objects.filter(category_id= 2, 
+        context["Shoes"] = Products.objects.filter(category_id= 2, 
             )
         # else:
         #     context["shirts"] = Products.objects.all()
