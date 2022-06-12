@@ -15,6 +15,10 @@ HTML|CSS|Python| Django|BootStrap|Bulma| Visual Studio| Postgresql|GoogleChrome
 
 ### Detail Page
 
+
+## Data Models
+<img width="883" alt="Screen Shot 2022-06-12 at 11 03 36 AM" src="https://user-images.githubusercontent.com/99110345/173239609-481d5f2f-f9f3-4f43-9ac2-e54311132ba6.png">
+
 ## User Stories
 As a user, I want to see products without login in the home page.
 As a user, I want to signup and login to the app see different products.  \
