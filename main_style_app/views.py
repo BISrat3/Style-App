@@ -266,25 +266,3 @@ class ReviewDelete(DeleteView):
     success_url = "/products/"
 
     
-        # return redirect (f'products/oxfordshirt/{prod.cat_id}/' )
-#     data = render_to_string('product_list.html', {'selected': allProducts})
-#     return JsonResponse({'selected': data})
-
-# def filter_price(request):
-#     product_filter = RangeFilter(request.GET)
-#     return render(request, 'product_list.html',{'product_filter': product_filter})
-
-
-# class ProductFilter(filters.FilterSet):
-#     min_price = filters.NumberFilter(field_name="price", lookup_expr='gte')
-#     max_price = filters.NumberFilter(field_name="price", lookup_expr='lte')
-
-#     class Meta:
-#         model = Products
-#         fields = ['min_price', 'max_price']
-
-
-# class ProductList(generics.ListAPIView):
-#     queryset = Products.objects.all()
-#     filter_backends = (filters.DjangoFilterBackend,)
-#     filterset_class = ProductFilter
