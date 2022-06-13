@@ -64,5 +64,4 @@ https://men-style-store.herokuapp.com/
 - To start the server, run python3 manage.py runserver   
 
 ## Future Features
-No add to cart/remove and filter items by price functionality. I didn't get enough time to implement it at that moment. I will do it later on.  
-Adding an admin dashboard for managing products, see the order details and status order for each order.
+No add to cart/remove and filter items by price functionality. I will implement it later on with the full features of this e-commerce site and also add an admin dashboard for managing products, see the order details and status order for each order.
