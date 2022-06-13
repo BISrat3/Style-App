@@ -5,16 +5,19 @@ My app is called Men's Style Store App. It's a style app for men's who have a ha
 This app allows consumers to buy different products from a seller based on the categories and price of the product.
 
 ## Techonologies Used
-  HTML
-  CSS
-  Python
-  Django
-  BootStrap
-  Bulma
-  Visual Studio
-  Postgresql
-  GoogleChrome
-  Heroku
+  - HTML
+  - CSS
+  - JavaScript
+  - Python
+  - Django
+  - BootStrap
+  - Bulma
+  - Visual Studio
+  - Postgresql
+  - GoogleChrome
+  - Heroku
+  - Gunicorn
+  - Psycopg2-binary
 
 ## WireFrames
 ### Home Page
@@ -24,7 +27,7 @@ This app allows consumers to buy different products from a seller based on the c
 <img width="1424" alt="Screen Shot 2022-06-12 at 5 21 02 PM" src="https://user-images.githubusercontent.com/99110345/173254406-3a484317-cb85-41f5-91b2-7659d7eacdf2.png">
 
 ### Detail Page
-
+<img width="864" alt="Screen Shot 2022-06-12 at 11 55 51 PM" src="https://user-images.githubusercontent.com/99110345/173276800-1f9a9c22-1145-4225-91a2-5ac087339e96.png">
 
 ## Data Models
 <img width="883" alt="Screen Shot 2022-06-12 at 11 03 36 AM" src="https://user-images.githubusercontent.com/99110345/173239609-481d5f2f-f9f3-4f43-9ac2-e54311132ba6.png">
@@ -47,7 +50,7 @@ As a user, I want to add an admin dashboard for managing products.
 As a user, I want to be able to see the order details and status order for each order.
 
 ## Deployed Heroku App
-https://men-style-store.herokuapp.com/products/
+https://men-style-store.herokuapp.com/
 
 ## Installation
 - Download and install Visual Studio Code
@@ -56,7 +59,10 @@ https://men-style-store.herokuapp.com/products/
 - pip3 install pipenv
 - pipenv install django
 - pipenv shell
+- To run the backend locally, please install Postgresql.
+- To open the code, please use code .
+- To start the server, run python3 manage.py runserver   
 
-## Future Features.
-- I will add the functionality of add to cart, 
-- I will add an admin dashboard for managing products, see the order details and status order for each order.
+## Future Features
+No add to cart/remove and filter items by price functionality. I didn't get enough time to implement it at that moment. I will do it later on.  
+Adding an admin dashboard for managing products, see the order details and status order for each order.
