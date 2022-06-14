@@ -1,7 +1,7 @@
 ## Men's Style Store App
 
 ## Description 
-My app is called Men's Style Store App. It's a style app for men who have a hard time figuring out which products to buy and reviewing the  item they selected and seeing other people's comments(CRUD functionality). This app allows consumers to comment on specific categories and to read the item's description and price and decide which item is good to buy in the future.  
+My app is called Men's Style Store App. It's a style app for men who have a hard time figuring out which products to buy and reviewing the  item they selected and seeing other people's comments(CRUD functionality). This app allows consumers to comment on specific categories and to read the item's description and price and decide which item is good to buy in the future.  https://mens-styles-store.herokuapp.com/
 
 ## Techonologies Used
   - HTML
@@ -20,7 +20,8 @@ My app is called Men's Style Store App. It's a style app for men who have a hard
 
 ## WireFrames
 ### Home Page
-<img width="1440" alt="Screen Shot 2022-06-13 at 8 36 40 AM" src="https://user-images.githubusercontent.com/99110345/173355166-34abf0e5-bc09-4a4a-aae4-a9cdae78388e.png">
+
+<img width="1435" alt="Screen Shot 2022-06-14 at 8 38 59 AM" src="https://user-images.githubusercontent.com/99110345/173579144-14801f96-3889-4a29-96c7-3e50177f892b.png">
 
 
 ### Product Page
@@ -28,6 +29,10 @@ My app is called Men's Style Store App. It's a style app for men who have a hard
 
 ### Detail Page
 <img width="864" alt="Screen Shot 2022-06-12 at 11 55 51 PM" src="https://user-images.githubusercontent.com/99110345/173276800-1f9a9c22-1145-4225-91a2-5ac087339e96.png">
+
+### Detail review Page 
+
+<img width="1429" alt="Screen Shot 2022-06-14 at 8 45 10 AM" src="https://user-images.githubusercontent.com/99110345/173580394-dfa601d1-9d12-4623-b419-ba73fd870c2a.png">
 
 ## Data Models
 <img width="883" alt="Screen Shot 2022-06-12 at 11 03 36 AM" src="https://user-images.githubusercontent.com/99110345/173239609-481d5f2f-f9f3-4f43-9ac2-e54311132ba6.png">
@@ -53,15 +58,16 @@ My app is called Men's Style Store App. It's a style app for men who have a hard
 https://men-style-store.herokuapp.com/
 
 ## Installation
-- Download and install Visual Studio Code
-- Fork and Clone this respository
-   - https://github.com/BISrat3/Style-App 
-- pip3 install pipenv
-- pipenv install django
-- pipenv shell
-- To run the backend locally, please install Postgresql first. 
-- To open the code, please use code .
-- To start the server, run python3 manage.py runserver   
+1. Fork and Clone this respository
+   https://github.com/BISrat3/Style-App 
+2. Download and install Visual Studio Code,Python3, Package (pip)and Django 
+3. To open the code, please use code .
+4. To run the backend locally, please install Postgresql first. 
+5. In the terminal, run python3 manage.py runserver 
+6. Open http://127.0.0.1:8000/
 
 ## Future Features
 No add to cart/remove and filter items by price functionality. I will implement it later on with the full features of this e-commerce site and also add an admin dashboard for managing products, see the order details and status order for each order.
+
+## Contribution Guidelines
+Please feel free to contribute to my code, identify bugs, and propose improvements!
