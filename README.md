@@ -1,7 +1,7 @@
 ## Men's Style Store App
 
 ## Description 
-My app is called Men's Style Store App. It's a style app for men who have a hard time figuring out which products to buy and reviewing the  item they selected and seeing other people's comments(CRUD functionality). This app allows consumers to comment on specific categories and to read the item's description and price and decide which item is good to buy in the future.  https://mens-styles-store.herokuapp.com/
+My app is called Men's Style Store App. It's a style app for men who have a hard time figuring out which products to buy and reviewing the  item they selected and seeing other people's comments(CRUD functionality). This app allows consumers to comment on specific categories and to read the item's description and price and decide which item is good to buy in the future.  
 
 ## Techonologies Used
   - HTML
@@ -55,7 +55,7 @@ My app is called Men's Style Store App. It's a style app for men who have a hard
 - As a user, I want to be able to see the order details and status order for each order.
 
 ## Deployed Heroku App
-https://men-style-store.herokuapp.com/
+https://mens-styles-store.herokuapp.com/
 
 ## Installation
 1. Fork and Clone this respository
